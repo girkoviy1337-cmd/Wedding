@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Андрій & Женя — Wedding</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:#f5f3ef;
+color:#333;
+overflow-x:hidden;
+}
+
+/* OPEN SCREEN */
+
+.open{
+position:fixed;
+width:100%;
+height:100%;
+background:black;
+color:white;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:10;
+text-align:center;
+}
+
+.open h1{
+font-family:'Playfair Display';
+font-size:50px;
+margin-bottom:20px;
+}
+
+.open button{
+padding:15px 40px;
+border:none;
+border-radius:40px;
+font-size:18px;
+cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+height:100vh;
+background:url("photo1.jpg") center/cover no-repeat;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+color:white;
+text-shadow:0 5px 20px rgba(0,0,0,0.5);
+}
+
+.hero h1{
+font-family:'Playfair Display';
+font-size:72px;
+}
+
+.hero p{
+font-size:24px;
+margin-top:10px;
+}
+
+/* SECTION */
+
+.section{
+padding:100px 20px;
+max-width:1100px;
+margin:auto;
+text-align:center;
+}
+
+.section h2{
+font-family:'Playfair Display';
+font-size:42px;
+margin-bottom:20px;
+}
+
+/* GALLERY */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+}
+
+.gallery img{
+width:100%;
+border-radius:14px;
+transition:0.5s;
+}
+
+.gallery img:hover{
+transform:scale(1.05);
+}
+
+/* DRESS CODE */
+
+.colors{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-top:30px;
+}
+
+.color{
+width:70px;
+height:70px;
+border-radius:50%;
+}
+
+.black{background:black;}
+.beige{background:#d6c4a0;}
+.white{background:white;border:1px solid #ccc;}
+
+/* TIMER */
+
+.timer{
+font-size:36px;
+margin-top:20px;
+}
+
+/* BUTTON */
+
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:16px 40px;
+border-radius:40px;
+background:black;
+color:white;
+text-decoration:none;
+font-size:18px;
+}
+
+/* FOOTER */
+
+footer{
+padding:60px;
+text-align:center;
+color:#777;
+font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="open" id="open">
+
+<h1>Запрошення на весілля</h1>
+
+<p>Андрій & Женя</p>
+
+<button onclick="openSite()">Відкрити</button>
+
+</div>
+
+
+<section class="hero">
+
+<h1>Андрій & Женя</h1>
+
+<p>20 червня 2026 • 16:00</p>
+
+</section>
+
+
+<section class="section">
+
+<h2>Ми запрошуємо вас</h2>
+
+<p>
+Розділити з нами один із найважливіших днів нашого життя
+</p>
+
+</section>
+
+
+<section class="section">
+
+<h2>Наші моменти</h2>
+
+<div class="gallery">
+
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+
+</div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Дрес-код</h2>
+
+<p>Будемо раді якщо ви підтримаєте кольорову атмосферу</p>
+
+<div class="colors">
+
+<div class="color black"></div>
+<div class="color beige"></div>
+<div class="color white"></div>
+
+</div>
+
+<p style="margin-top:20px">
+Чорний • Бежевий • Білий для чоловіків
+</p>
+
+</section>
+
+
+<section class="section">
+
+<h2>До нашого весілля</h2>
+
+<div class="timer" id="timer"></div>
+
+</section>
+
+
+<section class="section">
+
+<h2>Локація</h2>
+
+<p>Скоро додамо карту та адресу</p>
+
+</section>
+
+
+<section class="section">
+
+<h2>Підтвердження присутності</h2>
+
+<a class="btn" href="#">Написати нам</a>
+
+</section>
+
+
+<footer>
+
+Андрій & Женя • 2026
+
+</footer>
+
+
+<script>
+
+function openSite(){
+document.getElementById("open").style.display="none";
+}
+
+/* TIMER */
+
+const wedding = new Date("June 20, 2026 16:00:00").getTime();
+
+setInterval(()=>{
+
+const now = new Date().getTime();
+const dist = wedding - now;
+
+const d = Math.floor(dist/(1000*60*60*24));
+const h = Math.floor((dist%(1000*60*60*24))/(1000*60*60));
+const m = Math.floor((dist%(1000*60*60))/(1000*60));
+
+document.getElementById("timer").innerHTML =
+d+" днів "+h+" год "+m+" хв";
+
+},1000);
+
+</script>
+
+</body>
+</htm
